@@ -1,8 +1,7 @@
 /* 
 	Programa que muestra el paso de parametros en threads
 	
-	compilar con:		gcc th3.c -o th3 -lposix4 -lpthread
-	Compilar linux:		gcc th3.c -o th3 -lrt -lpthread
+	Compilar linux:		gcc th3.c -o th3 -lpthread
 	
 	Ejecutar con: 		./th3
 */
@@ -14,8 +13,8 @@
 /* Prototipos de las funciones que ejecutan los threads */
 void *func1 (void *);
 
-// Estructura que contiene los datos a pasar como parámetros
-// Un único parámetro se puede pasar directamente con el operador &
+// Estructura que contiene los datos a pasar como parï¿½metros
+// Un ï¿½nico parï¿½metro se puede pasar directamente con el operador &
 typedef struct
 {
 	int dato1,dato2;
@@ -37,7 +36,7 @@ void *func1 (void *arg)
 	printf("Soy el thread 1 y voy a ejecutar func1 \n");
 	printf("La multiplicacion es %d\n",a*b);
 	printf("Soy el thread 1 y he terminado de ejecutar la funcion 1\n");
-	pthread_exit(NULL);	/* Provoca la terminación del thread*/
+	pthread_exit(NULL);	/* Provoca la terminaciï¿½n del thread*/
 }
 
 
@@ -50,7 +49,7 @@ int main(void)
 	param.dato2=8;
 	
 	thmain = pthread_self();   /*La propia funcion main es un thread*/
-	pthread_attr_init (&attr);	/*inicializa los parámetros de los	threads por defecto*/
+	pthread_attr_init (&attr);	/*inicializa los parï¿½metros de los	threads por defecto*/
 	
 	printf("Soy la funcion main y voy a lanzar el thread con parametros %dx%d \n", param.dato1, param.dato2);
 	pthread_create (&thread1, &attr, func1, &param);

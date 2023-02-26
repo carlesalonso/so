@@ -1,8 +1,7 @@
 /* mutex2.c: Programa que muestra el empleo de mutex con threads 
  	version incorrecta sin seccion de entrada/salida
 
- 	Compilar con: 		gcc -o mutexth2 mutexth2.c -lpthread -lposix4 
-	Compilar linux:		gcc -o mutexth2 mutexth2.c -lpthread -lrt 
+	Compilar linux:		gcc -o mutexth2 mutexth2.c -lpthread 
 	
 	Ejecutar con: 		./mutexth2
 */

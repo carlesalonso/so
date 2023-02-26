@@ -1,8 +1,7 @@
 /* 
 	Programa que muestra el cambio de prioridad
 	
-	compilar con:		gcc th4.c -o th4 -lposix4 -lpthread
-	Compilar linux:		gcc th4.c -o th4 -lrt -lpthread
+	Compilar linux:		gcc th4.c -o th4  -lpthread
 	
 	Ejecutar con: 		./th4
 */
@@ -33,11 +32,11 @@ void *func (void *arg)
 	printf("Soy el thread 1 y voy a ejecutar func1 \n");
 	sleep(5);
 	printf("Soy el thread 1 y he terminado de ejecutar la funcion 1\n");
-	pthread_exit(NULL);	/* Provoca la terminación del thread*/
+	pthread_exit(NULL);	/* Provoca la terminaciï¿½n del thread*/
 }
 
 
-/*Función main*/
+/*Funciï¿½n main*/
 int main (void)
 {
   

@@ -1,8 +1,8 @@
 /* 
 	Programa que muestra como crear threads
 	
-	compilar con:		gcc th1.c -o th1 -lposix4 -lpthread
-	Compilar linux:		gcc th1.c -o th1 -lrt -lpthread
+	
+	Compilar linux:		gcc th1.c -o th1  -lpthread
 	
 	Ejecutar con: 		./th1
 */
@@ -26,7 +26,7 @@ void *func1 (void *arg)
 	printf("Soy el thread 1 y voy a ejecutar func1 \n");
 	sleep(2);
 	printf("Soy el thread 1 y he terminado de ejecutar la funcion 1\n");
-	pthread_exit(NULL);	/* Provoca la terminaci¢n del thread*/
+	pthread_exit(NULL);	/* Provoca la terminaciï¿½n del thread*/
 }
 
 void *func2 (void *arg)
@@ -35,16 +35,16 @@ void *func2 (void *arg)
 	printf("Soy el thread 2 y voy a ejecutar func2 \n");
 	sleep(5);
 	printf("Soy el thread 2 y he terminado de ejecutar la funcion 2\n");
-	pthread_exit(NULL);	/* Provoca la terminaci¢n del thread*/
+	pthread_exit(NULL);	/* Provoca la terminaciï¿½n del thread*/
 
 }
 
-/* Funci¢n main */
+/* Funciï¿½n main */
 int main(void)
 {
-	thmain = pthread_self(); /*La propia funci¢n main es un thread*/
+	thmain = pthread_self(); /*La propia funciï¿½n main es un thread*/
 
-	pthread_attr_init (&attr);	/*inicializa los par metros de los threads por defecto*/
+	pthread_attr_init (&attr);	/*inicializa los parï¿½metros de los threads por defecto*/
 
 	printf("Soy la funcion main y voy a lanzar los dos threads \n");
 	pthread_create (&thread1, &attr, func1, NULL);

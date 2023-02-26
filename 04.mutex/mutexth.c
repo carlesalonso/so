@@ -12,7 +12,7 @@ void *func2 (void*);
 
 /* Declaracion de los threads */
 pthread_t thread1, thread2;
-∫
+
 pthread_attr_t attr;
 
 /* Declaracion del mutex */

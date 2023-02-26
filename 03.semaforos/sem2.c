@@ -1,7 +1,6 @@
 /* ejemplo de uso de semaforos nombrados  (seccion critica)
 
-	Compilar con:			gcc sem2.c -o sem2 -lposix4
-	Compilar linux: 		gcc sem2.c -o sem2 -lrt
+	Compilar linux: 		gcc sem2.c -o sem2 -pthread
 	
 	Ejecutar con:		./sem2
 */
@@ -83,7 +82,7 @@ int main (int argc, char *argv[])
 		printf("\nSoy el Padre [PID:%d] y voy a esperar que terminen todos los hijos\n", getpid());
 		for(i=1;i<n;i++)
 			wait(0);
-		// Elimina el sem‡foro nombrado
+		// Elimina el semï¿½foro nombrado
 		sem_unlink("/semaforo");
 	}
 	exit(0);

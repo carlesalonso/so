@@ -1,7 +1,6 @@
 /* ejemplo de uso de semaforos no nombrados para sincronizar la ejecucion de dos procesos 
 
-	Compilar con:			gcc sem3.c -o sem3 -lposix4
-	Compilar linux: 		gcc sem3.c -o sem3 -lrt
+	Compilar linux: 		gcc sem3.c -o sem3 -pthread
 	
 	Ejecutar con:		./sem3
 */
@@ -14,7 +13,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-sem_t *sem_1, *sem_2;	// declaramos un puntero para el identificador de los semáforos
+sem_t *sem_1, *sem_2;	// declaramos un puntero para el identificador de los semï¿½foros
 
 int main(void)
 {
@@ -50,13 +49,13 @@ int main(void)
 			
 			for (i=2;i<=20;i+=2)
 			{
-				sem_wait(sem_2);	/* espera que el padre libere su semáforo */
+				sem_wait(sem_2);	/* espera que el padre libere su semï¿½foro */
 				printf("hijo  valor:%d\n",i);
 				sleep(1);
 				sem_post(sem_1); /* activa al padre */
 			}
 
-			/* libero semáforos */
+			/* libero semï¿½foros */
 			sem_close(sem_1);
 			sem_close(sem_2);
 
@@ -67,13 +66,13 @@ int main(void)
 			printf("Soy el padre con PID:%d\n", getpid());
 			for(i=1;i<=20;i+=2)
 			{
-				sem_wait(sem_1);	/* espera que el hijo libere su semáforo */
+				sem_wait(sem_1);	/* espera que el hijo libere su semï¿½foro */
 				printf("padre valor:%d\n",i);
 				sleep(1);
 				sem_post(sem_2); /* activa al hijo */
 			}
 
-			/* libero semáforos */
+			/* libero semï¿½foros */
 			sem_close(sem_1);
 			sem_close(sem_2);
 

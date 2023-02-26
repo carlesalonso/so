@@ -1,8 +1,8 @@
 /* 
 	Programa que muestra el uso de pthread_cancel
 	
-	compilar con:		gcc th5.c -o th5 -lposix4 -lpthread
-	Compilar linux:		gcc th5.c -o th5 -lrt -lpthread
+	
+	Compilar linux:		gcc th5.c -o th5  -lpthread
 	
 	Ejecutar con: 		./th5
 */

@@ -1,8 +1,8 @@
 /* 
 	Ejemplo de uso de pthread_join
 	
-	compilar con:		gcc th2.c -o th2 -lposix4 -lpthread
-	Compilar linux:		gcc th2.c -o th2 -lrt -lpthread
+	
+	Compilar linux:		gcc th2.c -o th2  -lpthread
 	
 	Ejecutar con: 		./th2
 */
@@ -49,7 +49,7 @@ int main(void)
 	
 	pthread_attr_init (&attr);	
 
-	printf("Soy la funci¢n main y voy a lanzar los dos threads \n");
+	printf("Soy la funciï¿½n main y voy a lanzar los dos threads \n");
 	pthread_create (&thread1, &attr, func1, NULL);
 	pthread_create (&thread2, &attr, func2, NULL);
 

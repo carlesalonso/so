@@ -2,8 +2,7 @@
 
 	Seccion de entrada/salida desactivadas
 
-	Compilar con:			gcc sem2r.c -o sem2r -lposix4
-	Compilar linux: 		gcc sem2r.c -o sem2r -lrt
+	Compilar linux: 		gcc sem2r.c -o sem2r -pthread
 	
 	Ejecutar con:		./sem2r
 */
@@ -84,7 +83,7 @@ int main (int argc, char *argv[])
 		printf("\nSoy el Padre [PID:%d] y voy a esperar que terminen todos los hijos\n", getpid());
 		for(i=1;i<n;i++)
 			wait(0);
-		// Elimina el sem‡foro nombrado
+		// Elimina el semï¿½foro nombrado
 		sem_unlink("/semaforo");
 	}
 	exit(0);

@@ -2,8 +2,7 @@
 
 	Seccion de entrada/salida desactivadas
 
-	Compilar con:			gcc sem3r.c -o sem3r -lposix4
-	Compilar linux: 		gcc sem3r.c -o sem3r -lrt
+	Compilar linux: 		gcc sem3r.c -o sem3r -pthread
 	
 	Ejecutar con:		./sem3r
 */
@@ -16,7 +15,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-sem_t *sem_1, *sem_2;	// declaramos un puntero para el identificador de los semáforos
+sem_t *sem_1, *sem_2;	// declaramos un puntero para el identificador de los semï¿½foros
 
 int main(void)
 {
@@ -25,12 +24,12 @@ int main(void)
 	
 	printf("Creando semaforos .....\n");
 
-	/* comprueba si ya existe el semáforo del padre y sino lo crea desbloqueado (1)*/
+	/* comprueba si ya existe el semï¿½foro del padre y sino lo crea desbloqueado (1)*/
 	sem_1=sem_open("/sem_1", O_CREAT, 0644, 1);
 	if (sem_1==(sem_t *)-1)
 		perror("Error creando semaforo 1");
 
-		/* comprueba si ya existe el semáforo del hijo y sino lo crea ya bloqueado (0)*/
+		/* comprueba si ya existe el semï¿½foro del hijo y sino lo crea ya bloqueado (0)*/
 	sem_2=sem_open("/sem_2", O_CREAT, 0644, 0);
 	if (sem_2==(sem_t *)-1)
 		perror("Error creando semaforo 2");
@@ -52,13 +51,13 @@ int main(void)
 			
 			for (i=2;i<=20;i+=2)
 			{
-				//sem_wait(sem_1);	/* espera que el padre libere su semáforo */
+				//sem_wait(sem_1);	/* espera que el padre libere su semï¿½foro */
 				printf("hijo  valor:%d\n",i);
 				sleep(1);
 				//sem_post(sem_2); /* activa al padre */
 			}
 
-			/* libero semáforos */
+			/* libero semï¿½foros */
 			sem_close(sem_1);
 			sem_close(sem_2);
 
@@ -69,13 +68,13 @@ int main(void)
 			printf("Soy el padre con PID:%d\n", getpid());
 			for(i=1;i<20;i+=2)
 			{
-				//sem_wait(sem_2);	/* espera que el hijo libere su semáforo */
+				//sem_wait(sem_2);	/* espera que el hijo libere su semï¿½foro */
 				printf("padre valor:%d\n",i);
 				sleep(1);
 				//sem_post(sem_1); /* activa al hijo */
 			}
 
-			/* libero semáforos */
+			/* libero semï¿½foros */
 			sem_close(sem_1);
 			sem_close(sem_2);
 
