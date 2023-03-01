@@ -35,7 +35,10 @@ void *func1 (void *arg)
 	{
 		fputc (*c, stdout);
 		c++;
-		/* Forzamos la expulsion de la CPU con sched_yield */
+		/* Forzamos la expulsion de la CPU con sched_yield
+	       sched _yield() causes the calling thread to relinquish the CPU.
+           The thread is moved to the end of the queue for its static
+           priority and a new thread gets to run */
 		sched_yield();
 	}
 	fputc('\n', stdout);
